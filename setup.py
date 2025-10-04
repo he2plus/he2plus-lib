@@ -25,10 +25,10 @@ setup(
     description="Professional Development Environment Manager - From zero to deploy in one command",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/prakhar/he2plus",
+    url="https://github.com/he2plus/he2plus-lib",
     project_urls={
-        "Bug Reports": "https://github.com/prakhar/he2plus/issues",
-        "Source": "https://github.com/prakhar/he2plus",
+        "Bug Reports": "https://github.com/he2plus/he2plus-lib/issues",
+        "Source": "https://github.com/he2plus/he2plus-lib",
         "Documentation": "https://he2plus.dev",
         "Twitter": "https://twitter.com/he2plus",
     },

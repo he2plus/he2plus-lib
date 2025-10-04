@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "he2plus"
-version = "0.1.0"
+version = "0.2.0"
 authors = [
     {name = "Prakhar Tripathi", email = "prakhar@he2plus.dev"},
 ]
@@ -72,10 +72,10 @@ web3 = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/he2plus/he2plus"
-Documentation = "https://github.com/he2plus/he2plus#readme"
-Repository = "https://github.com/he2plus/he2plus"
-"Bug Tracker" = "https://github.com/he2plus/he2plus/issues"
+Homepage = "https://github.com/he2plus/he2plus-lib"
+Documentation = "https://github.com/he2plus/he2plus-lib#readme"
+Repository = "https://github.com/he2plus/he2plus-lib"
+"Bug Tracker" = "https://github.com/he2plus/he2plus-lib/issues"
 "Twitter" = "https://twitter.com/he2plus"
 
 [project.scripts]
