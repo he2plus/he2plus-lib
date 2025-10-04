@@ -25,6 +25,8 @@ he2plus solves the universal problem of development environment setup and depend
 pip install he2plus
 ```
 
+**Note**: The package is now available on PyPI! You can install it directly using the command above.
+
 ## 🎯 Quick Start
 
 ### Install a Development Profile
@@ -259,10 +261,10 @@ he2plus install web3-solidity
 - [x] Add more development profiles (web-mern, web-vue, web-angular)
 - [ ] Implement profile removal and updates
 - [x] Add comprehensive testing suite
-- [ ] Prepare for GitHub release and v1.0
+- [x] Prepare for GitHub release and v1.0
 - [x] Add comprehensive test suite
 - [ ] Create documentation website
-- [ ] PyPI publishing and distribution
+- [x] PyPI publishing and distribution
 
 ## 🎯 Roadmap
 
@@ -297,6 +299,7 @@ he2plus install web3-solidity
 **Status**: ✅ Phase 2 Complete - Core Profiles Ready
 **Last Updated**: December 2024
 **Next Milestone**: Phase 3 - Installation Engine & Advanced Features
+**Deployment**: ✅ GitHub Repository & PyPI Package Ready
 
 ---
 
