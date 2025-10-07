@@ -50,7 +50,7 @@ logger = structlog.get_logger(__name__)
 
 
 @click.group()
-@click.version_option(version="0.2.0")
+@click.version_option(version="0.3.0")
 @click.option('--verbose', '-v', is_flag=True, help='Verbose output')
 @click.option('--quiet', '-q', is_flag=True, help='Quiet output')
 @click.pass_context
@@ -194,7 +194,6 @@ def install(ctx, profiles, yes, verbose):
                     if result.warnings:
                         for warning in result.warnings:
                             console.print(f"   ⚠️  {warning}", style="yellow")
-            return
         
         if result.warnings:
             for warning in result.warnings:
@@ -336,7 +335,7 @@ def doctor(profile, fix):
                 console.print("❌ Profile cannot be installed:", style="red")
                 for issue in validation.blocking_issues:
                     console.print(f"   • {issue}", style="red")
-    else:
+        else:
             console.print(f"❌ Profile not found: {profile}", style="red")
     
     console.print("\n")
@@ -485,7 +484,7 @@ def verify_profile(profile, installer: InstallationEngine) -> bool:
         if not result.success:
             console.print(f"   ❌ {step.name}: {result.error}", style="red")
             return False
-    else:
+        else:
             console.print(f"   ✓ {step.name}", style="green")
     
     return True
