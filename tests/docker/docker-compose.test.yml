@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # Test Web3 Solidity Profile
+  test-web3-solidity:
+    build:
+      context: ../..
+      dockerfile: tests/docker/test-web3-solidity.dockerfile
+    container_name: he2plus-test-web3-solidity
+    environment:
+      - TERM=xterm-256color
+    volumes:
+      - ../../:/app:ro
+    networks:
+      - test-network
+
+  # Test Web Next.js Profile
+  test-web-nextjs:
+    build:
+      context: ../..
+      dockerfile: tests/docker/test-web-nextjs.dockerfile
+    container_name: he2plus-test-web-nextjs
+    environment:
+      - TERM=xterm-256color
+    volumes:
+      - ../../:/app:ro
+    networks:
+      - test-network
+
+  # Test ML Python Profile
+  test-ml-python:
+    build:
+      context: ../..
+      dockerfile: tests/docker/test-ml-python.dockerfile
+    container_name: he2plus-test-ml-python
+    environment:
+      - TERM=xterm-256color
+    volumes:
+      - ../../:/app:ro
+    networks:
+      - test-network
+
+  # Test Mobile React Native Profile
+  test-mobile-react-native:
+    build:
+      context: ../..
+      dockerfile: tests/docker/test-mobile-react-native.dockerfile
+    container_name: he2plus-test-mobile-react-native
+    environment:
+      - TERM=xterm-256color
+    volumes:
+      - ../../:/app:ro
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge
+
