@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  ubuntu22-test:
+    build:
+      context: ../..
+      dockerfile: tests/docker-validation/Dockerfile.ubuntu22
+    container_name: he2plus-ubuntu22-test
+    volumes:
+      - ../..:/home/testuser/he2plus:ro
+    command: ["/bin/bash", "/home/testuser/he2plus/tests/docker-validation/test_comprehensive.sh"]
+    
+  ubuntu20-test:
+    build:
+      context: ../..
+      dockerfile: tests/docker-validation/Dockerfile.ubuntu20
+    container_name: he2plus-ubuntu20-test
+    volumes:
+      - ../..:/home/testuser/he2plus:ro
+    command: ["/bin/bash", "/home/testuser/he2plus/tests/docker-validation/test_comprehensive.sh"]
+    
+  debian-test:
+    build:
+      context: ../..
+      dockerfile: tests/docker-validation/Dockerfile.debian
+    container_name: he2plus-debian-test
+    volumes:
+      - ../..:/home/testuser/he2plus:ro
+    command: ["/bin/bash", "/home/testuser/he2plus/tests/docker-validation/test_comprehensive.sh"]
+
