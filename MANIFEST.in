@@ -1,16 +1,26 @@
 include README.md
 include LICENSE
+include CHANGELOG.md
 include requirements.txt
+include requirements-dev.txt
 include pyproject.toml
+include setup.py
+
 recursive-include he2plus *.py
-recursive-include examples *.py
-recursive-include tests *.py
-recursive-include scripts *.py
-recursive-include .github *.yml *.yaml
-global-exclude *.pyc
-global-exclude __pycache__
-global-exclude .git*
-global-exclude .DS_Store
-global-exclude venv
-global-exclude .venv
-global-exclude *.egg-info
+recursive-include he2plus *.yaml
+recursive-include he2plus *.json
+recursive-include he2plus *.txt
+recursive-include he2plus *.md
+
+exclude tests/e2e-fullstack/test-results/*
+exclude tests/e2e-fullstack/test-app/*
+exclude tests/e2e-fullstack/*.log
+exclude .git*
+exclude .pytest_cache
+exclude __pycache__
+exclude *.pyc
+exclude *.pyo
+exclude *.egg-info
+exclude .DS_Store
+exclude .venv
+exclude venv

@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  # Simulates a Mac developer's workflow on clean Ubuntu
+  mac-developer-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.mac-dev
+    container_name: he2plus-mac-dev-test
+    volumes:
+      - ./test-results:/test-results
+      - ./test-app:/test-app
+    environment:
+      - TEST_MODE=full-stack
+      - GITHUB_REPO=https://github.com/he2plus/he2plus-lib.git
+    command: /test-scripts/run-fullstack-test.sh

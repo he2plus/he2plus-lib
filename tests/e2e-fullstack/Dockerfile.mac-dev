@@ -1,0 +1,33 @@
+# Simulates a Mac developer environment on clean Linux
+FROM ubuntu:22.04
+
+# Prevent interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+# Install system prerequisites
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-venv \
+    curl \
+    wget \
+    git \
+    build-essential \
+    ca-certificates \
+    gnupg \
+    lsb-release \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create working directory
+WORKDIR /workspace
+
+# Copy test scripts
+COPY test-scripts /test-scripts
+RUN chmod +x /test-scripts/*.sh
+
+# Create output directories
+RUN mkdir -p /test-results /test-app
+
+# Set up for testing
+CMD ["/bin/bash"]

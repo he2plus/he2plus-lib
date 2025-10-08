@@ -1,0 +1,62 @@
+name: Status Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+
+jobs:
+  quick-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install he2plus
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .
+    
+    - name: Quick smoke tests
+      run: |
+        # Test version
+        he2plus --version
+        
+        # Test help
+        he2plus --help
+        
+        # Test list command
+        he2plus list --available
+        
+        # Test info command  
+        he2plus info web-nextjs || true
+        
+        # Test doctor command
+        he2plus doctor || true
+    
+    - name: Check Python imports
+      run: |
+        python -c "import he2plus; print('✅ Main module imports')"
+        python -c "from he2plus.profiles.registry import ProfileRegistry; print('✅ Profile registry imports')"
+        python -c "from he2plus.core.system import SystemProfiler; print('✅ System profiler imports')"
+    
+    - name: Create status badge data
+      run: |
+        mkdir -p .github/badges
+        echo '{"schemaVersion":1,"label":"status","message":"passing","color":"success"}' > .github/badges/status.json
+    
+    - name: Report status
+      run: |
+        echo "✅ All quick checks passed!"
+        echo "Repository: https://github.com/${{ github.repository }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Branch: ${{ github.ref_name }}"

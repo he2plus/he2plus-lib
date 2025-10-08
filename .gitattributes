@@ -1,0 +1,33 @@
+# Auto detect text files and normalize line endings
+* text=auto
+
+# Source code
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.sh text eol=lf
+
+# Documentation
+*.rst text eol=lf
+
+# Configuration files
+.gitignore text eol=lf
+.gitattributes text eol=lf
+pyproject.toml text eol=lf
+setup.py text eol=lf
+requirements*.txt text eol=lf
+MANIFEST.in text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.whl binary
+*.egg binary
+*.pyc binary

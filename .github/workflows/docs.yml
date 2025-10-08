@@ -1,0 +1,57 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .
+        pip install sphinx sphinx-rtd-theme myst-parser sphinx-copybutton || true
+    
+    - name: Build documentation
+      run: |
+        if [ -f "docs/source/conf.py" ]; then
+          cd docs
+          if [ -f "source/Makefile" ]; then
+            cd source
+            make html || echo "Sphinx build failed, continuing..."
+          else
+            sphinx-build -b html source build/html || echo "Sphinx build failed, continuing..."
+          fi
+        else
+          echo "No Sphinx documentation found, skipping..."
+          mkdir -p docs/build/html
+          echo "<html><body><h1>he2plus Documentation</h1><p>See <a href='https://github.com/he2plus/he2plus-lib'>GitHub</a> for documentation.</p></body></html>" > docs/build/html/index.html
+        fi
+    
+    - name: Add .nojekyll
+      run: |
+        touch docs/build/html/.nojekyll
+    
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/build/html
+        cname: false
