@@ -223,6 +223,4 @@ he2plus install web3-solidity
 ### Community:
 - **Twitter**: [@he2plus](https://twitter.com/he2plus) for updates and community
 - **GitHub**: Open source development and contributions
-- **Discord**: Community support and discussions (coming soon)
 
-**Let's make the development experience amazing for everyone! 🎉**
