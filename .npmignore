@@ -1,0 +1,13 @@
+# Ignore npm-package directory in root .npmignore
+# (This is for if someone tries to npm install from root)
+npm-package/
+tests/
+docs/
+.github/
+.git/
+*.pyc
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/

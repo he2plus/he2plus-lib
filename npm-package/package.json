@@ -1,0 +1,70 @@
+{
+  "name": "he2plus",
+  "version": "0.3.0",
+  "description": "Professional Development Environment Manager - From zero to deploy in one command (Node.js wrapper)",
+  "main": "index.js",
+  "bin": {
+    "he2plus": "./bin/he2plus.js"
+  },
+  "scripts": {
+    "test": "node test/test.js",
+    "postinstall": "node scripts/install.js",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "development",
+    "environment",
+    "setup",
+    "automation",
+    "devops",
+    "web3",
+    "machine-learning",
+    "mobile",
+    "web-development",
+    "cli",
+    "productivity"
+  ],
+  "author": {
+    "name": "Prakhar Tripathi",
+    "email": "dptmywork@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/he2plus/he2plus-lib.git",
+    "directory": "npm-package"
+  },
+  "bugs": {
+    "url": "https://github.com/he2plus/he2plus-lib/issues"
+  },
+  "homepage": "https://github.com/he2plus/he2plus-lib#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "preferGlobal": true,
+  "files": [
+    "index.js",
+    "bin/",
+    "scripts/",
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.0.0",
+    "cross-spawn": "^7.0.3",
+    "which": "^4.0.0"
+  },
+  "devDependencies": {},
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/he2plus"
+  }
+}
